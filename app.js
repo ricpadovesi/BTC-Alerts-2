@@ -1,7 +1,7 @@
-const priceElement = document.getElementById("price");
+https priceElement = document.getElementById("price");
 
 // API pública (simples e confiável)
-const API_URL = "https://api.coindesk.com/v1/bpi/currentprice/BTC.json";
+const API_URL = "fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,brl")";
 
 // Buscar preço do BTC
 async function fetchBTCPrice() {
