@@ -1,0 +1,44 @@
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --accent: #00ff9c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 20px;
+  background: var(--card);
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+#price {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+main {
+  padding: 16px;
+}
+
+section {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 10px;
+}
