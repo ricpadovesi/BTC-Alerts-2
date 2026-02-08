@@ -15,7 +15,6 @@ h1 {
   margin: 20px;
   padding: 20px;
   border-radius: 12px;
-  font-size: 20px;
 }
 
 strong {
@@ -23,8 +22,27 @@ strong {
   color: #22c55e;
 }
 
-#status {
-  margin-top: 20px;
+input {
+  padding: 10px;
+  width: 80%;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #22c55e;
+  color: #022c22;
+  font-weight: bold;
+}
+
+#status,
+#alert-status {
+  margin-top: 10px;
   font-size: 14px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
