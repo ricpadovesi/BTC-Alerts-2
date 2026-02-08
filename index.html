@@ -2,31 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTC Alerts</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
 
+  <meta name="theme-color" content="#0f172a" />
 </head>
-<body>
-  <header>
-    <h1>BTC Alerts</h1>
-    <p id="price">Carregando preço...</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Alertas</h2>
-      <p>(em construção)</p>
-    </section>
-  </main>
+<body>
+  <h1>🚨 BTC Alerts</h1>
+
+  <div class="card">
+    <p>Bitcoin (USD)</p>
+    <strong id="btc-usd">carregando...</strong>
+  </div>
+
+  <div class="card">
+    <p>Bitcoin (BRL)</p>
+    <strong id="btc-brl">carregando...</strong>
+  </div>
+
+  <p id="status"></p>
 
   <script src="app.js"></script>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
     }
   </script>
 </body>
