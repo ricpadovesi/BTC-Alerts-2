@@ -1,31 +1,33 @@
-https priceElement = document.getElementById("price");
+const STATUS = document.getElementById("status");
 
-// API pública (simples e confiável)
-const API_URL = "fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,brl")";
-
-// Buscar preço do BTC
-async function fetchBTCPrice() {
+async function buscarBTC() {
   try {
-    const response = await fetch(API_URL);
-    const data = await response.json();
+    STATUS.textContent = "Atualizando preços...";
 
-    const priceUSD = data.bpi.USD.rate_float;
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,brl"
+    );
 
-    updatePrice(priceUSD);
-  } catch (error) {
-    priceElement.textContent = "Erro ao carregar preço";
-    console.error("Erro ao buscar preço:", error);
+    if (!res.ok) throw new Error("Falha na API");
+
+    const data = await res.json();
+
+    document.getElementById("btc-usd").textContent =
+      "$ " + data.bitcoin.usd.toLocaleString("en-US");
+
+    document.getElementById("btc-brl").textContent =
+      "R$ " + data.bitcoin.brl.toLocaleString("pt-BR");
+
+    STATUS.textContent = "Última atualização: " + new Date().toLocaleTimeString();
+
+  } catch (err) {
+    console.error(err);
+    STATUS.textContent = "Erro ao buscar preço do BTC";
   }
 }
 
-// Atualiza o preço na tela
-function updatePrice(price) {
-  priceElement.textContent = `BTC: $${price.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })}`;
-}
+// primeira execução
+buscarBTC();
 
-// Atualiza a cada 30 segundos
-fetchBTCPrice();
-setInterval(fetchBTCPrice, 30000);
+// atualização automática a cada 30s
+setInterval(buscarBTC, 30000);
